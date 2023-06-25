@@ -47,7 +47,7 @@ services:
       - ./tmp/io_manager_storage:/tmp/io_manager_storage
     depends_on:
       - postgres
-      - docker_example_user_code
+      - dagster_example_user_code
 
   dagster_example_daemon:
     build:
@@ -66,4 +66,4 @@ services:
       - ./tmp/io_manager_storage:/tmp/io_manager_storage
     depends_on:
       - postgres
-      - docker_example_user_code
+      - dagster_example_user_code

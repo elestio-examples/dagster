@@ -34,6 +34,8 @@ services:
       DAGSTER_CURRENT_IMAGE: "docker_example_user_code_image"
     networks:
       - docker_example_network
+    ports:
+      - "172.17.0.1:4123:4000"
 
   # This service runs dagit, which loads your user code from the user code container.
   # Since our instance uses the QueuedRunCoordinator, any runs submitted from dagit will be put on

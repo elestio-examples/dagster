@@ -8,6 +8,15 @@ ports:
     isAuth: false
     login: ""
     password: ""
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "8443"
+    targetPort: "4123"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
 config:
   runTime: "dockerCompose"
   version: ""

@@ -7,6 +7,8 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: "dagster_db"
+    networks:
+      - dagster_example_network
     volumes:
       - ./pgdata:/var/lib/postgresql/data
 
@@ -21,6 +23,8 @@ services:
       DAGSTER_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DAGSTER_POSTGRES_DB: "dagster_db"
       DAGSTER_CURRENT_IMAGE: "dagster_example_user_code_image"
+    networks:
+      - dagster_example_network
 
   dagster_example_dagit:
     build:
@@ -48,6 +52,8 @@ services:
     depends_on:
       - postgres
       - dagster_example_user_code
+    networks:
+      - dagster_example_network
 
   dagster_example_daemon:
     build:
@@ -67,3 +73,10 @@ services:
     depends_on:
       - postgres
       - dagster_example_user_code
+    networks:
+      - dagster_example_network
+
+networks:
+  dagster_example_network:
+    driver: bridge
+    name: dagster_example_network

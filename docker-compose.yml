@@ -5,7 +5,7 @@ services:
     image: postgres:11
     environment:
       POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: ${random_password}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: "dagster_db"
     volumes:
       - ./pgdata:/var/lib/postgresql/data
@@ -18,7 +18,7 @@ services:
     restart: always
     environment:
       DAGSTER_POSTGRES_USER: "postgres"
-      DAGSTER_POSTGRES_PASSWORD: ${random_password}
+      DAGSTER_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DAGSTER_POSTGRES_DB: "dagster_db"
       DAGSTER_CURRENT_IMAGE: "dagster_example_user_code_image"
 
@@ -40,7 +40,7 @@ services:
       - "172.17.0.1:3123:3000"
     environment:
       DAGSTER_POSTGRES_USER: "postgres"
-      DAGSTER_POSTGRES_PASSWORD: ${random_password}
+      DAGSTER_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DAGSTER_POSTGRES_DB: "dagster_db"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -59,7 +59,7 @@ services:
     restart: always
     environment:
       DAGSTER_POSTGRES_USER: "postgres"
-      DAGSTER_POSTGRES_PASSWORD: ${random_password}
+      DAGSTER_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DAGSTER_POSTGRES_DB: "dagster_db"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

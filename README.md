@@ -26,3 +26,11 @@ git clone YOUR_REPOSITORY_URL
 Try to make some change in your Dagster project then push to the git repository
 
 After few seconds to few minutes your change will be deployed on your CI/CD target 🚀
+
+### Step 3: UI
+
+You can open Dragster UI here:
+
+    URL: https://[CI_CD_DOMAIN]
+    email: root
+    password: [ADMIN_PASSWORD]

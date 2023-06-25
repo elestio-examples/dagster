@@ -5,18 +5,14 @@ ports:
     targetPort: "3123"
     public: true
     path: "/"
-    isAuth: false
-    login: ""
-    password: ""
-  - protocol: "HTTPS"
-    targetProtocol: "HTTP"
-    listeningPort: "8443"
-    targetPort: "4123"
-    public: true
-    path: "/"
-    isAuth: false
-    login: ""
-    password: ""
+    isAuth: true
+    login: "root"
+    password: "random_password"
+environments:
+  - key: "POSTGRES_PASSWORD"
+    value: "random_password"
+  - key: "ADMIN_PASSWORD"
+    value: "random_password"
 config:
   runTime: "dockerCompose"
   version: ""
@@ -34,6 +30,3 @@ lifeCycleConfig:
   preRestoreCommand: "./scripts/preRestore.sh"
   postRestoreCommand: "./scripts/postRestore.sh"
   postDeployCommand: "./scripts/postDeploy.sh"
-webUI:
-  - url: "https://[CI_CD_DOMAIN]"
-    label: "Website"
